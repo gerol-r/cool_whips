@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,33 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="" />
-    <title>Cool Whips</title>
-    <link
-      rel=""
-      type=""
-      href=""
-    />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-    {% block head %} 
-    {% endblock %}
+    <title>Cool Whips</title>
+    {% block head %}{% endblock %}
   </head>
   <body>
-    <header>
-      <div class="header-logo-container">
-        <a href="/">
-          <img src="" alt="Cool Whips Logo" />
-        </a>
+    <header> <!-- *** REMOVE COMMENTS AFTER ADDING USER MODEL, TEMPLATES, AND URLS *** -->
+      <div class="header-container">
+        <!-- Logo linking to home -->
+        <div class="header-logo-container">
+          <a href="{% url 'home' %}">
+            <img src="{% static 'images/logo.png' %}" alt="Cool Whips Logo" />
+          </a>
+        </div>
+        <!-- Navigation menu -->
+        <nav class="header-nav">
+          <ul>
+            <li>Car Lot</li>
+            
+            <li>My Garage</li>
+            
+          </ul>
+        </nav>
+        <!-- User info and auth buttons -->
+        <div class="header-user-info">
+          
+            <span class="user-coins">Coins: </span> <!-- {{ user.coins }} -->
+            <span class="welcome-user">Welcome, </span> <!-- {{ user.username }} -->
+            <span class="btn-signin"> Sign In</span>
+            <span class="btn-signup"> Sign Up</span>
+          
+        </div>
       </div>
-      <nav>
-        <ul>
-          <li><!-- <a href="/lot"> -->Car Lot<!-- </a> --></li>
-          <li><!-- <a href="/garage"> -->My Garage<!-- </a> --></li>
-        </ul>
-      </nav>
     </header>
     <main>
-     {% block content %} 
-     {% endblock %}
-     </main>
+      {% block content %}{% endblock %}
+    </main>
   </body>
 </html>

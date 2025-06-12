@@ -1,0 +1,147 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %} {% block content %}
+<main class="home-container">
+  <!-- Welcome Section -->
+  <section class="welcome-section">
+    <div class="welcome-content">
+      <h1 class="welcome-title">Welcome to Cool Whips!</h1>
+      <p class="welcome-tagline">
+        Build your ultimate car collection with rare finds and exciting
+        lotteries.
+      </p>
+    </div>
+  </section>
+
+  <!-- Overview and Carousel Section -->
+  <section class="overview-carousel-section">
+    <div class="overview">
+      <p>
+        <strong>How It Works:</strong> You start with a set amount of coins.
+        Explore our car lot to purchase vehicles and add them to your garage.
+        Each car is categorized by tier and price. You can also participate in a
+        lottery to win a bonus car!
+      </p>
+    </div>
+    <div class="carousel-container">
+      <div class="carousel">
+        <!-- Example Car Cards -->
+        <div class="carousel-slide">
+          <div class="car-card">
+            <div class="car-image">
+              <img
+                src="{% static 'images/car1.jpg' %}"
+                alt="Car 1"
+                class="carousel-image"
+              />
+            </div>
+            <div class="car-info">
+              <div class="tier-badge tier-bronze">Bronze</div>
+              <!-- <div class="car-title">2020 Toyota Camry</div>
+              <div class="car-details">LE Trim</div> -->
+              <div class="car-price">💰 150 coins</div>
+              <button class="btn">Purchase</button>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="car-card">
+            <div class="car-image">
+              <img
+                src="{% static 'images/car1.jpg' %}"
+                alt="Car 1"
+                class="carousel-image"
+              />
+            </div>
+            <div class="car-info">
+              <div class="tier-badge tier-silver">Bronze</div>
+              <!-- <div class="car-title">2020 Toyota Camry</div>
+              <div class="car-details">LE Trim</div> -->
+              <div class="car-price">💰 150 coins</div>
+              <button class="btn">Purchase</button>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="car-card">
+            <div class="car-image">
+              <img
+                src="{% static 'images/car1.jpg' %}"
+                alt="Car 1"
+                class="carousel-image"
+              />
+            </div>
+            <div class="car-info">
+              <div class="tier-badge tier-gold">Bronze</div>
+              <!-- <div class="car-title">2020 Toyota Camry</div>
+              <div class="car-details">LE Trim</div> -->
+              <div class="car-price">💰 150 coins</div>
+              <button class="btn">Purchase</button>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="car-card">
+            <div class="car-image">
+              <img
+                src="{% static 'images/car1.jpg' %}"
+                alt="Car 1"
+                class="carousel-image"
+              />
+            </div>
+            <div class="car-info">
+              <div class="tier-badge tier-legendary">Bronze</div>
+              <!-- <div class="car-title">2020 Toyota Camry</div>
+              <div class="car-details">LE Trim</div> -->
+              <div class="car-price">💰 150 coins</div>
+              <button class="btn">Purchase</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector(".carousel");
+    const slides = document.querySelectorAll(".carousel-slide");
+    const carouselContainer = document.querySelector(".carousel-container");
+    let currentIndex = 0;
+    let slideWidth = slides[0].offsetWidth;
+    let autoplayInterval;
+
+    // Function to update carousel display.
+    function showSlide(index) {
+      carousel.style.transform = `translateX(-${index * slideWidth}px)`;
+    }
+
+    // Start the autoplay interval.
+    function startAutoplay() {
+      autoplayInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      }, 3000); // Change slide every 3 seconds
+    }
+
+    // Stop the autoplay
+    function stopAutoplay() {
+      clearInterval(autoplayInterval);
+    }
+
+    // Start autoplay on load
+    startAutoplay();
+
+    // Pause autoplay on mouse hover, and resume on mouse leave
+    carouselContainer.addEventListener("mouseover", stopAutoplay);
+    carouselContainer.addEventListener("mouseout", startAutoplay);
+
+    // Recalculate slide width on window resize to ensure proper functionality
+    window.addEventListener("resize", () => {
+      slideWidth = slides[0].offsetWidth;
+      showSlide(currentIndex);
+    });
+  });
+</script>
+
+{% endblock %}

@@ -1,0 +1,87 @@
+/* main_app/static/css/home.css */
+
+/* Inherit base styles */
+@import url('base.css');
+
+/* Home Container */
+.home-container {
+  padding: 20px;
+  background-color: #000; 
+  color: #fff;
+}
+
+/* Welcome Section */
+.welcome-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #023E73;
+  margin-bottom: 30px;
+  border-radius: 8px;
+}
+.welcome-title {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #0583F2;
+}
+.welcome-tagline {
+  font-size: 1.2em;
+  color: #fff;
+}
+
+/* Overview Section */
+.overview-carousel-section .overview {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  font-size: 1.1em;
+}
+.overview-carousel-section .overview p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+/* Carousel Styles */
+.carousel-container {
+  overflow: hidden;
+}
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.carousel-slide {
+  min-width: 75%; /* Adjust number of cards per view */
+  padding: 10px;
+  text-align: center;
+}
+.carousel-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}/* 
+.card-info {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #fff;
+}
+.card-tier {
+  display: block;
+  font-weight: bold;
+  color: #0597F2;
+}
+.card-price {
+  display: block;
+  margin-top: 5px;
+} */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-slide {
+    min-width: 50%;
+  }
+}
+@media (max-width: 480px) {
+  .carousel-slide {
+    min-width: 100%;
+  }
+}
