@@ -54,7 +54,7 @@
               />
             </div>
             <div class="car-info">
-              <div class="tier-badge tier-silver">Bronze</div>
+              <div class="tier-badge tier-silver">Silver</div>
               <!-- <div class="car-title">2020 Toyota Camry</div>
               <div class="car-details">LE Trim</div> -->
               <div class="car-price">💰 150 coins</div>
@@ -72,7 +72,7 @@
               />
             </div>
             <div class="car-info">
-              <div class="tier-badge tier-gold">Bronze</div>
+              <div class="tier-badge tier-gold">Gold</div>
               <!-- <div class="car-title">2020 Toyota Camry</div>
               <div class="car-details">LE Trim</div> -->
               <div class="car-price">💰 150 coins</div>
@@ -90,7 +90,7 @@
               />
             </div>
             <div class="car-info">
-              <div class="tier-badge tier-legendary">Bronze</div>
+              <div class="tier-badge tier-legendary">Legendary</div>
               <!-- <div class="car-title">2020 Toyota Camry</div>
               <div class="car-details">LE Trim</div> -->
               <div class="car-price">💰 150 coins</div>
@@ -103,45 +103,65 @@
   </section>
 </main>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const carousel = document.querySelector(".carousel");
-    const slides = document.querySelectorAll(".carousel-slide");
-    const carouselContainer = document.querySelector(".carousel-container");
-    let currentIndex = 0;
-    let slideWidth = slides[0].offsetWidth;
-    let autoplayInterval;
+    document.addEventListener('DOMContentLoaded', function () {
+  const carousel = document.querySelector('.carousel');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const carouselContainer = document.querySelector('.carousel-container');
+  let currentIndex = 0;
+  let slideWidth = slides[0].offsetWidth;
+  let autoplayInterval;
 
-    // Function to update carousel display.
-    function showSlide(index) {
-      carousel.style.transform = `translateX(-${index * slideWidth}px)`;
-    }
+  // Clone the first slide and append it to the end for seamless looping.
+  const firstSlideClone = slides[0].cloneNode(true);
+  carousel.appendChild(firstSlideClone);
 
-    // Start the autoplay interval.
-    function startAutoplay() {
-      autoplayInterval = setInterval(() => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-      }, 3000); // Change slide every 3 seconds
-    }
+  // Update total number of slides (original slides + the clone)
+  const totalSlides = slides.length + 1;
 
-    // Stop the autoplay
-    function stopAutoplay() {
-      clearInterval(autoplayInterval);
-    }
+  // Function to show a slide with transition.
+  function showSlide(index) {
+    carousel.style.transition = 'transform 0.5s ease';
+    carousel.style.transform = `translateX(-${index * slideWidth}px)`;
+  }
 
-    // Start autoplay on load
-    startAutoplay();
-
-    // Pause autoplay on mouse hover, and resume on mouse leave
-    carouselContainer.addEventListener("mouseover", stopAutoplay);
-    carouselContainer.addEventListener("mouseout", startAutoplay);
-
-    // Recalculate slide width on window resize to ensure proper functionality
-    window.addEventListener("resize", () => {
-      slideWidth = slides[0].offsetWidth;
+  // Start autoplay with infinite looping.
+  function startAutoplay() {
+    autoplayInterval = setInterval(() => {
+      currentIndex++;
       showSlide(currentIndex);
-    });
+
+      // If we reached the clone (last slide), reset back to the original first slide.
+      if (currentIndex === slides.length) {
+        // Wait for the transition to complete, then jump back without a transition.
+        setTimeout(() => {
+          carousel.style.transition = 'none';
+          carousel.style.transform = `translateX(0px)`;
+          currentIndex = 0;
+        }, 500); // Timing matches the 0.5s transition above.
+      }
+    }, 3000);
+  }
+
+  // Function to stop autoplay.
+  function stopAutoplay() {
+    clearInterval(autoplayInterval);
+  }
+
+  // Start autoplay on load.
+  startAutoplay();
+
+  // Pause autoplay on mouse hover and resume on mouse leave.
+  carouselContainer.addEventListener('mouseover', stopAutoplay);
+  carouselContainer.addEventListener('mouseout', startAutoplay);
+
+  // Update slideWidth on window resize.
+  window.addEventListener('resize', () => {
+    slideWidth = slides[0].offsetWidth;
+    carousel.style.transition = 'none'; // Remove transition to prevent flicker.
+    carousel.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
   });
+});
+
 </script>
 
 {% endblock %}

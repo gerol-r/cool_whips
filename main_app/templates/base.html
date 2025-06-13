@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/png" href="" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/base/shortcut.svg' %}" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     <title>Cool Whips</title>
     {% block head %}{% endblock %}
@@ -16,7 +16,7 @@
         <!-- Logo linking to home -->
         <div class="header-logo-container">
           <a href="{% url 'home' %}">
-            <img src="{% static 'images/logo.png' %}" alt="Cool Whips Logo" />
+            <img src="{% static 'images/base/coolwhips_logo.svg' %}" alt="Cool Whips Logo" />
           </a>
         </div>
         <!-- Navigation menu -->
