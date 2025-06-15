@@ -40,7 +40,7 @@
               <!-- <div class="car-title">2020 Toyota Camry</div>
               <div class="car-details">LE Trim</div> -->
               <div class="car-price">💰 150 coins</div>
-              <button class="btn">Purchase</button>
+              <!-- <button class="btn">Purchase</button> -->
             </div>
           </div>
         </div>
@@ -58,7 +58,7 @@
               <!-- <div class="car-title">2020 Toyota Camry</div>
               <div class="car-details">LE Trim</div> -->
               <div class="car-price">💰 150 coins</div>
-              <button class="btn">Purchase</button>
+              <!-- <button class="btn">Purchase</button> -->
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@
               <!-- <div class="car-title">2020 Toyota Camry</div>
               <div class="car-details">LE Trim</div> -->
               <div class="car-price">💰 150 coins</div>
-              <button class="btn">Purchase</button>
+              <!-- <button class="btn">Purchase</button> -->
             </div>
           </div>
         </div>
@@ -94,73 +94,119 @@
               <!-- <div class="car-title">2020 Toyota Camry</div>
               <div class="car-details">LE Trim</div> -->
               <div class="car-price">💰 150 coins</div>
-              <button class="btn">Purchase</button>
+              <!-- <button class="btn">Purchase</button> -->
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <!-- Modal overlay (hidden by default) -->
+  {% if not user.is_authenticated %}
+  <div id="loginModal" class="modal-overlay" style="display: none">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <section>
+        <form action="{% url 'home' %}" method="post" class="login">
+          <h1>Login</h1>
+          {% csrf_token %} {{ form.as_p }}
+          <input type="hidden" name="next" value="{{ next }}" />
+          <button type="submit" class="btn submit">Login</button>
+        </form>
+      </section>
+    </div>
+  </div>
+  {% endif %}
 </main>
+
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-  const carousel = document.querySelector('.carousel');
-  const slides = document.querySelectorAll('.carousel-slide');
-  const carouselContainer = document.querySelector('.carousel-container');
-  let currentIndex = 0;
-  let slideWidth = slides[0].offsetWidth;
-  let autoplayInterval;
+  document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector(".carousel");
+    const slides = document.querySelectorAll(".carousel-slide");
+    const carouselContainer = document.querySelector(".carousel-container");
+    let currentIndex = 0;
+    let slideWidth = slides[0].offsetWidth;
+    let autoplayInterval;
 
-  // Clone the first slide and append it to the end for seamless looping.
-  const firstSlideClone = slides[0].cloneNode(true);
-  carousel.appendChild(firstSlideClone);
+    // Clone the first slide and append it to the end for seamless looping.
+    const firstSlideClone = slides[0].cloneNode(true);
+    carousel.appendChild(firstSlideClone);
 
-  // Update total number of slides (original slides + the clone)
-  const totalSlides = slides.length + 1;
+    // Update total number of slides (original slides + the clone)
+    const totalSlides = slides.length + 1;
 
-  // Function to show a slide with transition.
-  function showSlide(index) {
-    carousel.style.transition = 'transform 0.5s ease';
-    carousel.style.transform = `translateX(-${index * slideWidth}px)`;
-  }
+    // Function to show a slide with transition.
+    function showSlide(index) {
+      carousel.style.transition = "transform 0.5s ease";
+      carousel.style.transform = `translateX(-${index * slideWidth}px)`;
+    }
 
-  // Start autoplay with infinite looping.
-  function startAutoplay() {
-    autoplayInterval = setInterval(() => {
-      currentIndex++;
-      showSlide(currentIndex);
+    // Start autoplay with infinite looping.
+    function startAutoplay() {
+      autoplayInterval = setInterval(() => {
+        currentIndex++;
+        showSlide(currentIndex);
 
-      // If we reached the clone (last slide), reset back to the original first slide.
-      if (currentIndex === slides.length) {
-        // Wait for the transition to complete, then jump back without a transition.
-        setTimeout(() => {
-          carousel.style.transition = 'none';
-          carousel.style.transform = `translateX(0px)`;
-          currentIndex = 0;
-        }, 500); // Timing matches the 0.5s transition above.
-      }
-    }, 3000);
-  }
+        // If we reached the clone (last slide), reset back to the original first slide.
+        if (currentIndex === slides.length) {
+          // Wait for the transition to complete, then jump back without a transition.
+          setTimeout(() => {
+            carousel.style.transition = "none";
+            carousel.style.transform = `translateX(0px)`;
+            currentIndex = 0;
+          }, 500); // Timing matches the 0.5s transition above.
+        }
+      }, 3000);
+    }
 
-  // Function to stop autoplay.
-  function stopAutoplay() {
-    clearInterval(autoplayInterval);
-  }
+    // Function to stop autoplay.
+    function stopAutoplay() {
+      clearInterval(autoplayInterval);
+    }
 
-  // Start autoplay on load.
-  startAutoplay();
+    // Start autoplay on load.
+    startAutoplay();
 
-  // Pause autoplay on mouse hover and resume on mouse leave.
-  carouselContainer.addEventListener('mouseover', stopAutoplay);
-  carouselContainer.addEventListener('mouseout', startAutoplay);
+    // Pause autoplay on mouse hover and resume on mouse leave.
+    carouselContainer.addEventListener("mouseover", stopAutoplay);
+    carouselContainer.addEventListener("mouseout", startAutoplay);
 
-  // Update slideWidth on window resize.
-  window.addEventListener('resize', () => {
-    slideWidth = slides[0].offsetWidth;
-    carousel.style.transition = 'none'; // Remove transition to prevent flicker.
-    carousel.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    // Update slideWidth on window resize.
+    window.addEventListener("resize", () => {
+      slideWidth = slides[0].offsetWidth;
+      carousel.style.transition = "none"; // Remove transition to prevent flicker.
+      carousel.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    });
   });
-});
+ // Modal scripts
+  function showLoginModal() {
+    document.getElementById("loginModal").style.display = "flex";
+    document.body.style.overflow = "hidden"; // Prevent scrolling
+  }
+  function closeModal() {
+    document.getElementById("loginModal").style.display = "none";
+    document.body.style.overflow = "auto"; // Restore scrolling
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("loginModal");
+    if (modal) {
+      modal.addEventListener("click", function (e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+    }
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    });
+    // Check if the login_modal parameter exists in the URL and show the modal
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('login_modal') === 'true') {
+      showLoginModal();
+    }
+  });
 
 </script>
 

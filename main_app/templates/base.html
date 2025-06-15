@@ -5,42 +5,56 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/png" href="{% static 'images/base/shortcut.svg' %}" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'images/base/shortcut.svg' %}"
+    />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     <title>Cool Whips</title>
     {% block head %}{% endblock %}
   </head>
   <body>
-    <header> <!-- *** REMOVE COMMENTS AFTER ADDING USER MODEL, TEMPLATES, AND URLS *** -->
+    <header>
+      <!-- *** REMOVE COMMENTS AFTER ADDING USER MODEL, TEMPLATES, AND URLS *** -->
       <div class="header-container">
         <!-- Logo linking to home -->
         <div class="header-logo-container">
           <a href="{% url 'home' %}">
-            <img src="{% static 'images/base/coolwhips_logo.svg' %}" alt="Cool Whips Logo" />
+            <img
+              src="{% static 'images/base/coolwhips_logo.svg' %}"
+              alt="Cool Whips Logo"
+            />
           </a>
         </div>
         <!-- Navigation menu -->
         <nav class="header-nav">
           <ul>
             <li>Car Lot</li>
-            
+            {% if user.is_authenticated %}
             <li>My Garage</li>
-            
+            {% endif %}
           </ul>
         </nav>
         <!-- User info and auth buttons -->
         <div class="header-user-info">
-          
-            <span class="user-coins">Coins: </span> <!-- {{ user.coins }} -->
-            <span class="welcome-user">Welcome, </span> <!-- {{ user.username }} -->
-            <span class="btn-signin"> Sign In</span>
-            <span class="btn-signup"> Sign Up</span>
-          
+          {% if user.is_authenticated %}
+          <span class="user-coins">Coins: {{ user.coins }}</span>
+          <span class="welcome-user">Welcome, {{ user.username }}</span>
+          <form id="logout-form" method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn-signout">Log out</button>
+          </form>
+          {% else %}
+          <!-- <button class="btn-signin" onclick="showLoginModal()">Sign In</button> -->
+          <a href="{% url 'home' %}?login_modal=true" class="btn-signin">Sign In</a>
+          <a href="{% url 'signup' %}" class="btn-signup">Sign Up</a>
+          {% endif %}
         </div>
       </div>
     </header>
     <main>
-      {% block content %}{% endblock %}
+    {% block content %}{% endblock %}
     </main>
   </body>
 </html>

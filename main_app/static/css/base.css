@@ -8,10 +8,10 @@
 
 /* Global Styles */
 body {
-  background-color: #000;
+  background-color: #030b1d;
   color: #fff;
   font-family: "Segoe UI", Arial, sans-serif;
-  line-height: 1.4;
+  line-height: 1.2;
 }
 
 /* Header Container */
@@ -28,7 +28,10 @@ body {
   display: inline-block;
 }
 .header-logo-container img {
-  height: 50px; 
+  max-width: 150px;
+  height: auto;
+  min-width: 100px;
+  
 }
 
 /* Navigation Styles */
@@ -82,6 +85,9 @@ body {
   background-color: #0468bf;
 }
 
+.btn-signup{
+  font-family: Arial;
+}
 /* Car Cards */
 .car-card {
   border: 1px solid #ddd;
@@ -153,3 +159,4 @@ body {
 main {
   padding: 20px;
 }
+
