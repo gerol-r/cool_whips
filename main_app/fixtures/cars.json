@@ -1,0 +1,257 @@
+[
+  {
+    "model": "main_app.car",
+    "pk": 1,
+    "fields": {
+      "make": "Bugatti",
+      "model": "Chiron",
+      "trim_level": "Super Sport 300+",
+      "tier": "Legendary",
+      "cost": "3200.00",
+      "is_hidden": false,
+      "owner": null,
+      "purchase_price": null,
+      "acquired_at": null,
+      "acquisition_method": "lottery",
+      "image_url": "main_app/static/images/cars/bugatti_chiron.jpg"
+    }
+  },
+  {
+    "model": "main_app.car",
+    "pk": 2,
+    "fields": {
+      "make": "McLaren",
+      "model": "Senna",
+      "trim_level": "Coupe",
+      "tier": "Legendary",
+      "cost": "3000.00",
+      "is_hidden": false,
+      "owner": null,
+      "purchase_price": null,
+      "acquired_at": null,
+      "acquisition_method": "lottery",
+      "image_url": "main_app/static/images/cars/mclaren_senna.jpg"
+    }
+  },
+  {
+    "model": "main_app.car",
+    "pk": 3,
+    "fields": {
+      "make": "Mercedes-Maybach",
+      "model": "G 650",
+      "trim_level": "Landaulet",
+      "tier": "Legendary",
+      "cost": "2000.00",
+      "is_hidden": false,
+      "owner": null,
+      "purchase_price": null,
+      "acquired_at": null,
+      "acquisition_method": "lottery",
+      "image_url": "main_app/static/images/cars/mercedes_maybach_g650.jpg"
+    }
+  },
+  {
+    "model": "main_app.car",
+    "pk": 4,
+    "fields": {
+      "make": "Porsche",
+      "model": "911",
+      "trim_level": "GT2 RS",
+      "tier": "Gold",
+      "cost": "1800.00",
+      "is_hidden": false,
+      "owner": null,
+      "purchase_price": null,
+      "acquired_at": null,
+      "acquisition_method": null,
+      "image_url": "main_app/static/images/cars/porsche_gt2_rs.jpg"
+    }
+  },
+  {
+    "model": "main_app.car",
+    "pk": 5,
+    "fields": {
+      "make": "Rezvani",
+      "model": "Vengeance",
+      "trim_level": "Military Executive",
+      "tier": "Gold",
+      "cost": "2000.00",
+      "is_hidden": false,
+      "owner": null,
+      "purchase_price": null,
+      "acquired_at": null,
+      "acquisition_method": null,
+      "image_url": "main_app/static/images/cars/rezvani_vengeance.jpg"
+    }
+  },
+  {
+    "model": "main_app.car",
+    "pk": 6,
+    "fields": {
+      "make": "Ferrari",
+      "model": "812",
+      "trim_level": "Competizione",
+      "tier": "Gold",
+      "cost": "1900.00",
+      "is_hidden": false,
+      "owner": null,
+      "purchase_price": null,
+      "acquired_at": null,
+      "acquisition_method": null,
+      "image_url": "main_app/static/images/cars/ferari_812.jpg"
+    }
+  },
+  {
+    "model": "main_app.car",
+    "pk": 7,
+    "fields": {
+      "make": "Lamborghini",
+      "model": "Aventador",
+      "trim_level": "SVJ",
+      "tier": "Gold",
+      "cost": "2000.00",
+      "is_hidden": false,
+      "owner": null,
+      "purchase_price": null,
+      "acquired_at": null,
+      "acquisition_method": null,
+      "image_url": "main_app/static/images/cars/lamborghini_aventador.jpg"
+    }
+  },
+  {
+    "model": "main_app.car",
+    "pk": 8,
+    "fields": {
+      "make": "BMW",
+      "model": "M4",
+      "trim_level": "Competition",
+      "tier": "Silver",
+      "cost": "1000.00",
+      "is_hidden": false,
+      "owner": null,
+      "purchase_price": null,
+      "acquired_at": null,
+      "acquisition_method": null,
+      "image_url": "main_app/static/images/cars/bmw_m4.jpg"
+    }
+  },
+  {
+    "model": "main_app.car",
+    "pk": 9,
+    "fields": {
+      "make": "Ford",
+      "model": "F-150",
+      "trim_level": "Raptor R",
+      "tier": "Silver",
+      "cost": "1300.00",
+      "is_hidden": false,
+      "owner": null,
+      "purchase_price": null,
+      "acquired_at": null,
+      "acquisition_method": null,
+      "image_url": "main_app/static/images/cars/ford_f150.jpg"
+    }
+  },
+  {
+    "model": "main_app.car",
+    "pk": 10,
+    "fields": {
+      "make": "Porsche",
+      "model": "Cayman",
+      "trim_level": "S",
+      "tier": "Silver",
+      "cost": "1200.00",
+      "is_hidden": false,
+      "owner": null,
+      "purchase_price": null,
+      "acquired_at": null,
+      "acquisition_method": null,
+      "image_url": "main_app/static/images/cars/porsche_cayman.jpg"
+    }
+  },
+  {
+    "model": "main_app.car",
+    "pk": 11,
+    "fields": {
+      "make": "Mercedes-AMG",
+      "model": "C 63",
+      "trim_level": "S",
+      "tier": "Silver",
+      "cost": "1100.00",
+      "is_hidden": false,
+      "owner": null,
+      "purchase_price": null,
+      "acquired_at": null,
+      "acquisition_method": null,
+      "image_url": "main_app/static/images/cars/mercedes_amg_c63.jpg"
+    }
+  },
+  {
+    "model": "main_app.car",
+    "pk": 12,
+    "fields": {
+      "make": "Ford",
+      "model": "Mustang",
+      "trim_level": "Dark Horse",
+      "tier": "Bronze",
+      "cost": "500.00",
+      "is_hidden": false,
+      "owner": null,
+      "purchase_price": null,
+      "acquired_at": null,
+      "acquisition_method": null,
+      "image_url": "main_app/static/images/cars/ford_mustang.jpg"
+    }
+  },
+  {
+    "model": "main_app.car",
+    "pk": 13,
+    "fields": {
+      "make": "Toyota",
+      "model": "GR Supra",
+      "trim_level": "3.0",
+      "tier": "Bronze",
+      "cost": "400.00",
+      "is_hidden": false,
+      "owner": null,
+      "purchase_price": null,
+      "acquired_at": null,
+      "acquisition_method": null,
+      "image_url": "main_app/static/images/cars/toyota_supra.jpg"
+    }
+  },
+  {
+    "model": "main_app.car",
+    "pk": 14,
+    "fields": {
+      "make": "Jeep",
+      "model": "Wrangler",
+      "trim_level": "Rubicon",
+      "tier": "Bronze",
+      "cost": "600.00",
+      "is_hidden": false,
+      "owner": null,
+      "purchase_price": null,
+      "acquired_at": null,
+      "acquisition_method": null,
+      "image_url": "main_app/static/images/cars/jeep_wrangler.jpg"
+    }
+  },
+  {
+    "model": "main_app.car",
+    "pk": 15,
+    "fields": {
+      "make": "Lexus",
+      "model": "RC F",
+      "trim_level": null,
+      "tier": "Bronze",
+      "cost": "600.00",
+      "is_hidden": false,
+      "owner": null,
+      "purchase_price": null,
+      "acquired_at": null,
+      "acquisition_method": null,
+      "image_url": "main_app/static/images/cars/lexus_rcf.jpg"
+    }
+  }
+]
