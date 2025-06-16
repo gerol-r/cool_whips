@@ -1,0 +1,11 @@
+.car-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.car-grid .car-card {
+    margin: 10px;
+}
+.car-lot-container section {
+    display: none;
+}

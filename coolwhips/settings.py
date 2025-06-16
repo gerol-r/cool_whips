@@ -122,7 +122,7 @@ STATIC_URL = 'static/'
 # Add this variable to specify where decorators and mixins should redirect to
 LOGIN_URL = 'home'
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'car_lot'
 
 # Add this variable to specify where logging out redirects to
 LOGOUT_REDIRECT_URL = 'home'

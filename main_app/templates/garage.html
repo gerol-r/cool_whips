@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/car_lot.css' %}" />
+<div class="garage-container">
+  <h1>Your Garage</h1>
+  <div class="car-grid">
+    {% for car in cars %}
+      <div class="car-card">
+        <div class="car-image">
+          <img src="{{ car.image_url }}" alt="{{ car.make }} {{ car.model }}" />
+        </div>
+        <div class="car-info">
+          {# Show tier badge based on the car's tier #}
+          {% if car.tier == 'Gold' %}
+            <div class="tier-badge tier-gold">{{ car.tier }}</div>
+          {% elif car.tier == 'Silver' %}
+            <div class="tier-badge tier-silver">{{ car.tier }}</div>
+          {% elif car.tier == 'Bronze' %}
+            <div class="tier-badge tier-bronze">{{ car.tier }}</div>
+          {% elif car.tier == 'Legendary' %}
+            <div class="tier-badge tier-legendary">{{ car.tier }}</div>
+          {% else %}
+            <div class="tier-badge">{{ car.tier }}</div>
+          {% endif %}
+          <div class="car-title">{{ car.make }} {{ car.model }}</div>
+          <div class="car-details">{{ car.trim_level }}</div>
+          <div class="car-price">
+            💰 Purchased for {{ car.purchase_price }} coins
+          </div>
+          {% if user.is_authenticated %}
+            <form action="{% url 'sell_car' car.id %}" method="post">
+              {% csrf_token %}
+              <button class="sell-btn">Sell</button>
+            </form>
+          {% endif %}
+        </div>
+      </div>
+    {% empty %}
+      <p>You do not own any cars yet. Head over to the car lot to make a purchase!</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

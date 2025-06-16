@@ -95,6 +95,7 @@ body {
   overflow: hidden;
   background: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 282px;
 }
 
 .car-image {
@@ -108,6 +109,7 @@ body {
 }
 
 .car-info {
+  margin-top: 5px;
   padding: 15px;
 }
 
@@ -154,9 +156,20 @@ body {
   background: #9b59b6;
   color: white;
 }
+.buy-btn, .sell-btn{
+  background-color: #27ae60;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  padding: 3px;
+}
 
 /* Optional: Additional styling for layout & spacing */
 main {
   padding: 20px;
 }
 
+a {
+  text-decoration: none;
+  color: #fff;
+}

@@ -30,16 +30,16 @@
         <!-- Navigation menu -->
         <nav class="header-nav">
           <ul>
-            <li>Car Lot</li>
+            <li><a href="{% url 'car_lot' %}">Car Lot</a></li>
             {% if user.is_authenticated %}
-            <li>My Garage</li>
+            <li><a href="{% url 'garage' %}">My Garage</a></li>
             {% endif %}
           </ul>
         </nav>
         <!-- User info and auth buttons -->
         <div class="header-user-info">
           {% if user.is_authenticated %}
-          <span class="user-coins">Coins: {{ user.coins }}</span>
+          <span class="user-coins">💰 Coins: {{ user.coins }}</span>
           <span class="welcome-user">Welcome, {{ user.username }}</span>
           <form id="logout-form" method="post" action="{% url 'logout' %}">
             {% csrf_token %}

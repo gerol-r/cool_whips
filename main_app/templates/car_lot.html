@@ -1,0 +1,112 @@
+{% extends 'base.html' %} {% block content %}{% load static %}
+<link rel="stylesheet" href="{% static 'css/car_lot.css' %}" />
+<div class="car-lot-container">
+  <h1>Car Lot</h1>
+ <!-- Legendary Cars -->
+  <section>
+      <h2>Legendary Cars</h2>
+      <div class="car-grid">
+        {% for car in cars %}
+          {% if car.tier == 'Legendary' %}
+            <div class="car-card">
+              <div class="car-image">
+                <img src="{{ car.image_url }}" alt="{{ car.make }} {{ car.model }}" />
+              </div>
+              <div class="car-info">
+                <div class="tier-badge tier-legendary">{{ car.tier }}</div>
+                <div class="car-title">{{ car.make }} {{ car.model }}</div>
+                <div class="car-details">{{ car.trim_level }}</div>
+                <div class="car-price">💰 {{ car.cost }} coins</div>
+                {% if user.is_authenticated %}
+                  <form action="{% url 'purchase_car' car.id %}" method="post">
+                    {% csrf_token %}
+                    <button class="buy-btn">Purchase</button>
+                  </form>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+  </section>
+
+  <!-- Gold Cars -->
+  <h2>Gold Cars</h2>
+  <div class="car-grid">
+    {% for car in cars %}
+      {% if car.tier == 'Gold' %}
+        <div class="car-card">
+          <div class="car-image">
+            <img src="{{ car.image_url }}" alt="{{ car.make }} {{ car.model }}" />
+          </div>
+          <div class="car-info">
+            <div class="tier-badge tier-gold">{{ car.tier }}</div>
+            <div class="car-title">{{ car.make }} {{ car.model }}</div>
+            <div class="car-details">{{ car.trim_level }}</div>
+            <div class="car-price">💰 {{ car.cost }} coins</div>
+            {% if user.is_authenticated %}
+              <form action="{% url 'purchase_car' car.id %}" method="post">
+                {% csrf_token %}
+                <button class="buy-btn">Purchase</button>
+              </form>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- Silver Cars -->
+  <h2>Silver Cars</h2>
+  <div class="car-grid">
+    {% for car in cars %}
+      {% if car.tier == 'Silver' %}
+        <div class="car-card">
+          <div class="car-image">
+            <img src="{{ car.image_url }}" alt="{{ car.make }} {{ car.model }}" />
+          </div>
+          <div class="car-info">
+            <div class="tier-badge tier-silver">{{ car.tier }}</div>
+            <div class="car-title">{{ car.make }} {{ car.model }}</div>
+            <div class="car-details">{{ car.trim_level }}</div>
+            <div class="car-price">💰 {{ car.cost }} coins</div>
+            {% if user.is_authenticated %}
+              <form action="{% url 'purchase_car' car.id %}" method="post">
+                {% csrf_token %}
+                <button class="buy-btn">Purchase</button>
+              </form>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- Bronze Cars -->
+  <h2>Bronze Cars</h2>
+  <div class="car-grid">
+    {% for car in cars %}
+      {% if car.tier == 'Bronze' %}
+        <div class="car-card">
+          <div class="car-image">
+            <img src="{{ car.image_url }}" alt="{{ car.make }} {{ car.model }}" />
+          </div>
+          <div class="car-info">
+            <div class="tier-badge tier-bronze">{{ car.tier }}</div>
+            <div class="car-title">{{ car.make }} {{ car.model }}</div>
+            <div class="car-details">{{ car.trim_level }}</div>
+            <div class="car-price">💰 {{ car.cost }} coins</div>
+            {% if user.is_authenticated %}
+              <form action="{% url 'purchase_car' car.id %}" method="post">
+                {% csrf_token %}
+                <button class="buy-btn">Purchase</button>
+              </form>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+  {% endblock %}
+</div>
