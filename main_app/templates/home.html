@@ -30,7 +30,7 @@
           <div class="car-card">
             <div class="car-image">
               <img
-                src="{% static 'images/car1.jpg' %}"
+                src="{% static 'images/4.jpg' %}"
                 alt="Car 1"
                 class="carousel-image"
               />
@@ -48,7 +48,7 @@
           <div class="car-card">
             <div class="car-image">
               <img
-                src="{% static 'images/car1.jpg' %}"
+                src="{% static 'images/2.jpg' %}"
                 alt="Car 1"
                 class="carousel-image"
               />
@@ -66,7 +66,7 @@
           <div class="car-card">
             <div class="car-image">
               <img
-                src="{% static 'images/car1.jpg' %}"
+                src="{% static 'images/1.jpg' %}"
                 alt="Car 1"
                 class="carousel-image"
               />
@@ -84,7 +84,7 @@
           <div class="car-card">
             <div class="car-image">
               <img
-                src="{% static 'images/car1.jpg' %}"
+                src="{% static 'images/3.jpg' %}"
                 alt="Car 1"
                 class="carousel-image"
               />
@@ -178,7 +178,7 @@
       carousel.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
     });
   });
- // Modal scripts
+  // Modal scripts
   function showLoginModal() {
     document.getElementById("loginModal").style.display = "flex";
     document.body.style.overflow = "hidden"; // Prevent scrolling
@@ -203,11 +203,10 @@
     });
     // Check if the login_modal parameter exists in the URL and show the modal
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('login_modal') === 'true') {
+    if (urlParams.get("login_modal") === "true") {
       showLoginModal();
     }
   });
-
 </script>
 
 {% endblock %}

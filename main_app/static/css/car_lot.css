@@ -1,11 +1,17 @@
-.car-grid{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.car-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 .car-grid .car-card {
-    margin: 10px;
+  margin: 10px;
 }
 .car-lot-container section {
-    display: none;
+  display: none;
+}
+h1 {
+  margin-bottom: 10px;
 }

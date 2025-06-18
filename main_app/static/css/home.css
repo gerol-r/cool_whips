@@ -1,7 +1,7 @@
 /* main_app/static/css/home.css */
 
 /* Inherit base styles */
-@import url('base.css');
+@import url("base.css");
 
 /* Home Container */
 .home-container {
@@ -13,25 +13,59 @@
 /* Welcome Section */
 .welcome-section {
   text-align: center;
-  padding: 40px 20px;
-  background-color: #023E73;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #023e73 0%, #034a87 50%, #023e73 100%);
   margin-bottom: 30px;
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(2, 62, 115, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
 }
+
+.welcome-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.03),
+    transparent
+  );
+  animation: shimmer 3s infinite;
+}
+
 .welcome-title {
   font-size: 2.5em;
   margin-bottom: 10px;
-  color: #0583F2;
+  color: #0583f2;
+  text-shadow: 0 0 20px rgba(5, 131, 242, 0.3);
 }
+
 .welcome-tagline {
   font-size: 1.2em;
   color: #fff;
+  opacity: 0.95;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
 }
 
 /* Overview Section */
 .overview-carousel-section .overview {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   padding: 0 20px;
   font-size: 1.1em;
 }
@@ -44,45 +78,96 @@
 /* Carousel Styles */
 .carousel-container {
   overflow: hidden;
+  position: relative;
+  margin: 0 10px;
 }
+
 .carousel {
   display: flex;
   transition: transform 0.5s ease;
+  gap: 15px;
 }
+
 .carousel-slide {
-  min-width: 30%; /* Adjust number of cards per view */
-  padding: 10px;
+  flex: 0 0 calc(33.333% - 10px); /* 3 cards on desktop */
+  padding: 15px;
   text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.carousel-slide:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
 .carousel-image {
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
   border-radius: 8px;
-}/* 
-.card-info {
-  margin-top: 10px;
-  font-size: 1em;
-  color: #fff;
+  margin-bottom: 10px;
 }
-.card-tier {
-  display: block;
-  font-weight: bold;
-  color: #0597F2;
-}
-.card-price {
-  display: block;
-  margin-top: 5px;
-} */
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
   .carousel-slide {
-    min-width: 50%;
+    flex: 0 0 calc(50% - 7.5px); /* 2 cards on tablet */
+  }
+  .carousel-image {
+    height: 180px;
   }
 }
-@media (max-width: 480px) {
+
+@media (max-width: 768px) {
+  .carousel-container {
+    margin: 0 5px;
+  }
+  .carousel {
+    gap: 10px;
+  }
   .carousel-slide {
-    min-width: 100%;
+    flex: 0 0 calc(50% - 5px); /* 2 cards on small tablet */
+    padding: 12px;
+  }
+  .carousel-image {
+    height: 160px;
+  }
+}
+
+@media (max-width: 580px) {
+  .carousel-slide {
+    flex: 0 0 calc(100% - 20px); /* 1 card on mobile */
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  .carousel-image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 380px) {
+  .carousel-container {
+    margin: 0;
+  }
+  .carousel-slide {
+    flex: 0 0 100%;
+    padding: 10px;
+  }
+  .carousel-image {
+    height: 180px;
+  }
+}
+
+/* Adding scroll snap for better mobile experience */
+@media (max-width: 768px) {
+  .carousel-container {
+    scroll-snap-type: x mandatory;
+  }
+  .carousel-slide {
+    scroll-snap-align: center;
   }
 }
 
@@ -102,7 +187,7 @@
 }
 
 .modal-content {
-  background: #0468BF;
+  background: #0468bf;
   border-radius: 12px;
   width: 90%;
   max-width: 450px;
@@ -178,7 +263,7 @@
   width: 100%;
   padding: 0.75rem;
   margin-top: 1rem;
-  background: #0583F2;
+  background: #0583f2;
   color: white;
   border: none;
   border-radius: 6px;
