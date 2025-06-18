@@ -28,7 +28,7 @@ You can view the live application [coming soon]().
 ## Technologies Used
 
 - **Frontend:** HTML, CSS, JavaScript
-- **Backend:** Django, Python
+- **Backend:** Django, Pythonpip
 - **Database:** PostgreSQL
 - **Authentication:** Django's built-in authentication system with a custom user model
 - **Additional Tools:** Git, GitHub for version control; virtual environments for dependency management
