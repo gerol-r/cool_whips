@@ -23,7 +23,7 @@ Cool Whips is a web application where users can build their dream car collection
 
 ## Deployed App
 
-You can view the live application [coming soon]().
+You can view the live application [here](https://coolwhips-5909dc009b5a.herokuapp.com/).
 
 ## Technologies Used
 
